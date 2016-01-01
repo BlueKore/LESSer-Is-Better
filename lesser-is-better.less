@@ -14,8 +14,67 @@
  * limitations under the License.
  */
 
-.border-radius(@radius){
+.border-radius(@radius) {
     -webkit-border-radius: @radius;
     -moz-border-radius: @radius;
     border-radius: @radius;
+}
+
+.flex(@flexValue) {
+    -webkit-flex: @flexValue;
+    -ms-flex: @flexValue;
+    flex: @flexValue;
+}
+
+.opacity (@opacity) when (@opacity =< 1.0 ) and (@opacity >= 0.0) {
+    @percentageValue: @opacity * 100;
+    opacity: @opacity;
+    filter: alpha(opacity=@percentageValue); //IE8 fix
+}
+
+.opacity (@opacity) when (@opacity =< 100 ) and (@opacity >= 0) {
+    @decimalValue: @opacity / 100;
+    opacity: @opacity;
+    filter: alpha(opacity=@decimalValue); //IE8 fix
+}
+
+.outline(@outline) {
+    -moz-outline: @outline;
+    outline: @outline;
+}
+
+.rotate(@degrees) {
+    .transform(~"rotate(@{degrees}deg)");
+}
+
+.rotateX(@degrees) {
+    .transform(~"rotateX(@{degrees}deg)");
+}
+
+.text-overflow(@overflow) {
+    -ms-text-overflow: @overflow;
+    -o-text-overflow: @overflow;
+    text-overflow: @overflow;
+}
+
+.transform(@transform) {
+    -ms-transform: @transform;
+    -webkit-transform: @transform;
+    -moz-transform: @transform;
+    -o-transform: @transform;
+    transform: @transform;
+}
+
+.transition(@transition) {
+    -webkit-transition: @transition;
+    -moz-transition: @transition;
+    -o-transition: @transition;
+    transition: @transition;
+}
+
+.user-select(@selectValue) {
+    -webkit-user-select: @selectValue;
+    -moz-user-select: @selectValue;
+    -ms-user-select: @selectValue;
+    user-select: @selectValue;
 }
